@@ -2,9 +2,11 @@
 
 -- (1). Number of jobs reviewed: Amount of jobs reviewed over time.
 --      Your task: Calculate the number of jobs reviewed per hour per day for November 2020?
+
 SELECT DS AS dates, COUNT(job_id)/24 as "Jobs_reviewed/Hour" from table1 where monthname(ds)='November' and table1.event!= 'skip' group by ds;
 
 -- (b). If result to include skipped decisions
+
 SELECT DS AS dates, COUNT(job_id)/24 as "Jobs_reviewed/Hour/day" from table1 where monthname(ds)='November' group by ds;
 
 -- (2). Throughput: It is the no. of events happening per second.
@@ -43,6 +45,7 @@ HAVING COUNT(*) > 1;
 
 -- (1).User Engagement: To measure the activeness of a user. Measuring if the user finds quality in a product/service.
 -- Your task: Calculate the weekly user engagement?
+
 SELECT
     e.location,
     SUM(CASE WHEN e.Weeks = 17 THEN e.User_engagement END) AS Week_17,
@@ -78,7 +81,6 @@ ORDER BY e.location;
 
 -- (2)User Growth: Amount of users growing over time for a product.
 -- Your task: Calculate the user growth for product?
-
 
 SELECT
     WEEK(created_at,1) AS week,
@@ -129,6 +131,7 @@ ORDER BY t.week;
 
 -- (4).Weekly Engagement: To measure the activeness of a user. Measuring if the user finds quality in a product/service weekly.
 --     Your task: Calculate the weekly engagement per device?
+
 SELECT
     CASE WHEN e.device IS NOT NULL THEN e.device ELSE 'Total' END AS device,
     SUM(CASE WHEN e.Weeks = 17 THEN e.User_engagement END) AS Week_17,
@@ -164,6 +167,7 @@ ORDER BY device IS NULL, e.device IS NULL, e.device;
 
 -- (5).Email Engagement: Users engaging with the email service.
 -- Your task: Calculate the email engagement metrics?
+
 SELECT week(occurred_at) as Week,
 count( DISTINCT ( CASE WHEN action = "sent_weekly_digest"
 THEN user_id end )) as weekly_digest,
