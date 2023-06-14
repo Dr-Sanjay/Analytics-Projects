@@ -13,7 +13,7 @@ You are working for a company like Microsoft designated as Data Analyst Lead and
 
 You are required to provide a detailed report for the below two operations mentioning the answers for the related questions:
 
-Case Study 1 (Job Data)
+### Case Study 1 (Job Data)
 Below is the structure of the table with the definition of each column that you must work on:
 
 Table-1: job_data
@@ -27,7 +27,7 @@ ds: date in the yyyy/mm/dd format. It is stored in the form of text and we use p
 Use the dataset attached in the Dataset section below the project images then answer the questions that follows.
 
 
-Case Study 1 (Job Data)
+### Case Study 1 (Job Data)
 
 (1).- Number of jobs reviewed: Amount of jobs reviewed over time.
       Your task: Calculate the number of jobs reviewed per hour per day for November 2020?
@@ -50,7 +50,7 @@ This table includes one row per user, with descriptive information about that us
 Table-2: events
 This table includes one row per event, where an event is an action that a user has taken. These events include login events, messaging events, search events, events logged as users progress through a signup funnel, events around received emails.
 
-Table-3: email_events
+#### Table-3: email_events
 This table contains events specific to the sending of emails. It is similar in structure to the events table above.
 Use the dataset attached in the Dataset section below the project images then answer the questions that follows
 
