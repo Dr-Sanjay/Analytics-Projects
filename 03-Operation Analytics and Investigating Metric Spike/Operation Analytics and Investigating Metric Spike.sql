@@ -203,8 +203,7 @@ ORDER BY t.week;
 -- (D).Weekly Engagement: To measure the activeness of a user. Measuring if the user finds quality in a product/service weekly.
 -- Your task: Calculate the weekly engagement per device?
 
-SELECT
-    CASE WHEN e.device IS NOT NULL THEN e.device ELSE 'Total' END AS device,
+SELECT e.device,
     SUM(CASE WHEN e.Weeks = 17 THEN e.User_engagement END) AS Week_17,
     SUM(CASE WHEN e.Weeks = 18 THEN e.User_engagement END) AS Week_18,
     SUM(CASE WHEN e.Weeks = 19 THEN e.User_engagement END) AS week_19,
@@ -229,11 +228,12 @@ FROM (
     SELECT WEEK(occurred_at) AS Weeks, device, COUNT(user_id) AS User_engagement
     FROM events
     WHERE event_type = 'engagement'
-    GROUP BY Weeks, device WITH ROLLUP
+    GROUP BY Weeks, device
 ) AS e
+
 GROUP BY e.device
 WITH ROLLUP
-ORDER BY device IS NULL, e.device IS NULL, e.device;
+ORDER BY device;
 
 
 -- (E).Email Engagement: Users engaging with the email service.
